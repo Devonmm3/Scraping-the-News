@@ -4,8 +4,8 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
 //models
-var Comment = require ("./models/userComments.js");
-var Article = require ("./models/articals.js");
+var Comment = require ("./models/Comments.js");
+var Article = require ("./models/Article.js");
 //route controllers
 var htmlRouter = require("./controllers/html-routes.js");
 var articleRouter = require("./controllers/articles-routes.js");
