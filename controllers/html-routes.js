@@ -4,7 +4,7 @@ var exphbs = require("express-handlebars");
 var router = express.Router();
 
 router.get("/", (req, res) => {
-    res.render(index);
+    res.render("index");
 });
 
 router.get("/saved", (req, res) => {

@@ -9,7 +9,7 @@ var router = express.Router();
 
 //scraping needed data from Betches sup/save to mongo
 router.get("/scrape", function(req, res) {
-    request("https://betches.com/the-sup/", function(error, reponse, html) {
+    request("https://betches.com/the-sup/", function(error, response, html) {
         var $ = cheerio.load(html);
 
         $("div.archiveList > article").each(function(i, element) {
