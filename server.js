@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
 //models
-var Comments = require ("./models/userComments.js");
+var Comment = require ("./models/userComments.js");
 var Article = require ("./models/articals.js");
 //route controllers
 var htmlRouter = require("./controllers/html-routes.js");
@@ -34,15 +34,17 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 
 mongoose.connect(MONGODB_URI);
 
-var database = mongoose.connection;
-//show successful MG connection
-database.once("open", function() {
-    console.log("Moongoose connection succesfully completed.");
-    });
 //show MG errors
 database.on("error", function(error) {
     console.log("Mongoose Error, Please see: ", error);
 })
+
+var db = mongoose.connection;
+//show successful MG connection
+db.once("open", function() {
+    console.log("Moongoose connection succesfully completed.");
+    });
+
 
 //listen
 app.listen(port, function() {

@@ -25,7 +25,7 @@ var ArticleSchema = new Schema({
     //save array of comments
     comments:[{
         type: Schema.OjectId,
-        ref:"comment"
+        ref:"Comment"
     }]
 });
 

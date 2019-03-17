@@ -1,15 +1,15 @@
 $(document).ready(function() {
     //mobile responsive again like on index.js with hambuger bulma 
     $(".navbar-burger").on("click", function() {
-        $(".navbar-burger").toggleID("is-active");
+        $(".navbar-burger").toggleClass("is-active");
         $(".dropdown").toggle();
-        $(".dropdown").toggleID("is-open");
+        $(".dropdown").toggleClass("is-open");
     });
 
     $.getJSON("/articles", function(data) {
         for (var i = 0; i < data.length; i++) {
             if (data[i].saved === true) {
-                $("#saved-results").append("<div class='saved-div'><p class='saved-text'>" + bSupData[i].title + "<br>" + bSupdata[i].description + "</p><a class='unsave-button button is-danger is-medium' data-id='" + bSupData[i]._id + "'>Remove Comment</a><a class='comments-button button is-info is-medium' data-id='" + bSupData[i]._id + "'><span class='icon'><i class='fa fa-comments'></i></span>Comments</a></div");
+                $("#saved-results").append("<div class='saved-div'><p class='saved-text'>" + data[i].title + "<br>" + data[i].description + "</p><a class='unsave-button button is-danger is-medium' data-id='" + data[i]._id + "'>Remove Comment</a><a class='comments-button button is-info is-medium' data-id='" + data[i]._id + "'><span class='icon'><i class='fa fa-comments'></i></span>Comments</a></div");
             }
         }
     })
@@ -21,12 +21,12 @@ $(document).ready(function() {
             method: "GET",
             url: "/articles/" + articleID
         }).done(function(data) {
-            $("#comments-header").html("Article Comments (ID: " + bSupData._id + ")");
+            $("#comments-header").html("Article Comments (ID: " + data._id + ")");
 
-            if (bSupData.comments.legnth !== 0) {
+            if (data.comments.legnth !== 0) {
                 $("#comments-list").empty();
-                for (i = 0; i < bSupData.comments.length; i++) {
-                    $("#comments-list").append("<div class='comment-div'><p class='comment'>" + bSupData.comments[i].body + "</p></div>");
+                for (i = 0; i < data.comments.length; i++) {
+                    $("#comments-list").append("<div class='comment-div'><p class='comment'>" + data.comments[i].body + "</p></div>");
                 }
                 }
             $(document).on("click", ".delete", function() {
@@ -41,8 +41,8 @@ $(document).ready(function() {
                     data: {
                         body: $("#new-comment-field").val()
                     }
-                }).done(function(bSupdata) {
-                    console.log("data: ", bSupdata);
+                }).done(function(data) {
+                    console.log("data: ", data);
                 });
 
                 $("#new-comment-field").val("");

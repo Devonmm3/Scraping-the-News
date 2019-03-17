@@ -1,7 +1,8 @@
 var express = require("express");
 var request = require("request");
 var cheerio = require("cheerio");
-var Article = require("../models/userComments.js");
+var Comment = require("../models/userComments.js")
+var Article = require("../models/articals.js");
 var router = express.Router();
 
 //homepage
@@ -83,13 +84,13 @@ router.get("/articles/:id", function(req, res) {
 
 //new comment
 router.post("/comment/:id", function(req,res) {
-    var addComment = new Comment(req.body);
-    addComment.save(function(error, addComment) {
+    var newComment = new Comment(req.body);
+    newComment.save(function(error, newComment) {
         if (error) {
             console.log(error);
         }
         else {
-            Article.findOneAndUpdate({"_id": req.params.id}, { $push: { "comments": addComment._id }}, {new: true})
+            Article.findOneAndUpdate({"_id": req.params.id}, { $push: { "comments": newComment._id }}, {new: true})
             .exec(function(err,doc) {
                 if (err) {
                     console.log(err);
