@@ -1,0 +1,42 @@
+.body {
+    background-color: pink;
+
+}
+
+.save-article {
+    float: left;
+    margin-top: 25%;
+    padding: auto
+}
+
+.result {
+    clear: both;
+    margin: auto;
+    padding: auto;
+}
+
+.comments-button {
+    float: left;
+    margin-top: 25%;
+    padding: auto;
+}
+
+.unsave-button {
+    float: right;
+    margin-top: 25%;
+    margin-left: 25%;
+    padding: auto
+}
+
+#scrape-results {
+    margin-top: 0;
+    margin-bottom: 200px;
+    height: 100%;
+}
+
+#saved-results {
+    margin-top: 0;
+    margin-bottom: 200px;
+    height: 100%;
+}
+

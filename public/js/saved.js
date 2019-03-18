@@ -1,4 +1,4 @@
-git a$(document).ready(function() {
+$(document).ready(function() {
     //mobile responsive again like on index.js with hambuger bulma 
     $(".navbar-burger").on("click", function() {
         $(".navbar-burger").toggleClass("is-active");

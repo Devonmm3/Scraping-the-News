@@ -3,10 +3,11 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var CommentSchema = new Schema({
-    body: {
+    
         //comment text
-        type: String
-    }
+        title: String,
+        body: String
+    
 });
 
 //comments in the Article model.  will be listed with an ObjectId, and mongoose will save it.  

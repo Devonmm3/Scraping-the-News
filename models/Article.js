@@ -10,6 +10,11 @@ var ArticleSchema = new Schema({
         required: true,
         unique: true
     },
+
+    link: {
+        type: String,
+        required: true
+    },
     //description
     description: {
         type: String,
@@ -24,7 +29,7 @@ var ArticleSchema = new Schema({
     },
     //save array of comments
     comments:[{
-        type: Schema.OjectId,
+        type: Schema.Types.OjectId,
         ref:"Comment"
     }]
 });
